@@ -3,10 +3,12 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 
+from app.DataManager import *
 
-app                      = Flask(__name__)
+
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
-socketio                 = SocketIO(app)
+socketio = SocketIO(app)
 
 
 @app.route('/')
@@ -25,5 +27,5 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
 
 if __name__ == '__main__':
-    loadData()
+    DataManager.load_data()
     socketio.run(app, host='0.0.0.0', port=8000, debug=True)
