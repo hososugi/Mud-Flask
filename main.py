@@ -25,4 +25,5 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
 
 if __name__ == '__main__':
+    loadData()
     socketio.run(app, host='0.0.0.0', port=8000, debug=True)
